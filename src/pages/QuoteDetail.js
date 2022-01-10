@@ -6,11 +6,6 @@ import useHttp from '../hooks/use-http';
 import { getSingleQuote } from '../lib/api';
 import LoadingSpinner from '../components/UI/LoadingSpinner';
 
-const DUMMY_QUOTES = [
-    { id: 'q1', author: 'Max', text: 'Learning React is Fun!' },
-    { id: 'q2', author: 'Necro', text: 'Learning React is Crap!' },
-];
-
 const QuoteDetail = () => {
     const match = useRouteMatch();
     const params = useParams();
@@ -24,13 +19,13 @@ const QuoteDetail = () => {
     }, [sendRequest, quoteId]);
 
     if (status === 'pending') {
-        return <div className='centered'>
-            <LoadingSpinner/>
+        return <div className="centered">
+            <LoadingSpinner />
         </div>;
     }
 
     if (error) {
-        return <p className='centered'>{error}</p>;
+        return <p className="centered">{error}</p>;
     }
 
     if (!loadedQuote.text) {
