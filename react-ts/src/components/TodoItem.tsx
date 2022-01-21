@@ -1,4 +1,5 @@
 import React from "react";
+import classes from './TodoItem.module.css';
 
 type TodoProps = {
     text: string,
@@ -6,7 +7,7 @@ type TodoProps = {
 
 const TodoItem: React.FC<TodoProps> = (props) => {
     return (
-        <li>{props.text}</li>
+        <li className={classes.item}>{props.text}</li>
     );
 }
 
